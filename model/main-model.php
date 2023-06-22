@@ -20,28 +20,4 @@ function getClassifications()
     // was called (this should be the controller) 
     return $classifications;
 }
-
-function getNavBar($classifications)
-{
-    // Build a navigation bar using the $classifications array
-    $navList = '<section class="hey">';
-    $navList .= '<div id="logo">';
-    $src = '"../images/site/logo.png"';
-    $alternate = '"this.src="./images/site/logo.png"; "';
-    $alt = '"Php Motors Logo"';
-    $navList .= "<img src=$src onerror=$alternate alt=$alt>";
-    $navList .= '</div>';
-    $navList .= '<div id="account">';
-    $navList .= "<a href='/phpmotors/accounts/index.php?action=" . urlencode('login') . "' title='View the log in page'>My Account</a>";
-    $navList .= '</div>';
-    $navList .= '</section>';
-    $navList .= '<ul>';
-    $navList .= "<li><a href='/phpmotors/index.php' title='View the PHP Motors home page'>Home</a></li>";
-    foreach ($classifications as $classification) {
-        $navList .= "<li><a href='/phpmotors/index.php?action=" . urlencode($classification['classificationName']) . "' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
-    }
-    $navList .= '</ul>';
-
-    return $navList;
-}
 ?>

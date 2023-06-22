@@ -4,7 +4,8 @@ body {
   margin: 0;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin-left: 1em;
 }
 
@@ -28,23 +29,25 @@ a {
   color: black;
 }
 
-nav {
-  font-size: 3.5vw;
-}
-@media only screen and (min-width: 930px) {
-  nav {
-    font-size: 1.5vw;
-  }
-}
-nav section {
+nav .flex {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
   font-size: 1em;
 }
-nav section #account {
+@media only screen and (max-width: 740px) {
+  nav .flex {
+    flex-direction: column;
+  }
+  nav .flex > * {
+    margin: 10px 0 !important;
+  }
+}
+nav .flex > * {
+  margin: 0;
+}
+nav .flex #account {
   margin-right: 1em;
 }
 nav ul {
@@ -55,7 +58,8 @@ nav ul {
   padding: 0;
   align-items: center;
   height: auto;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow: auto;
 }
 nav li:hover {
   background-color: #4c96d7;
@@ -75,18 +79,41 @@ main .message {
   margin-left: 20px;
   margin-right: 20px;
 }
+main .classifiedVehicles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main table {
+  margin: 20px auto;
+  text-align: center;
+}
+main table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+main table a {
+  color: blue;
+}
+main fieldset {
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
 main form {
   display: flex;
   flex-direction: column;
   padding: 0 2em;
   align-items: center;
 }
-main form input, main form textarea {
+main form input,
+main form textarea {
   margin-bottom: 15px;
   padding: 10px 20px;
   border-radius: 50px;
 }
-main form input[type=submit], main form textarea[type=submit] {
+main form input[type=submit],
+main form textarea[type=submit] {
   margin: 10px auto 0 auto;
 }
 main form textarea {
@@ -103,6 +130,11 @@ main form select {
 }
 main form label {
   margin-bottom: 0.2em;
+}
+main form span {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 0.8em;
 }
 main #delorean {
   margin: 10px 0;
@@ -175,7 +207,8 @@ main #top h2 {
     font-size: 2vw;
   }
 }
-main #top h2, main #top h3 {
+main #top h2,
+main #top h3 {
   margin: 0;
   color: #4c96d7;
 }
@@ -232,7 +265,8 @@ footer {
   text-align: center;
   padding: 20px 15px;
 }
-footer p, footer a {
+footer p,
+footer a {
   margin: 0;
   font-size: 0.8em;
 }
