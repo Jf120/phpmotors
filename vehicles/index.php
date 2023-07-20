@@ -16,6 +16,8 @@ require_once '../model/vehicles-model.php';
 // Get library of functions
 require_once '../library/functions.php';
 
+require_once '../model/uploads-model.php';
+
 // Get the array of classifications
 $classifications = getClassifications();
 
@@ -159,9 +161,39 @@ switch ($action) {
         } else {
             $message = "<p class='message'>Error. The vehicle was not deleted.</p>";
             $_SESSION['message'] = $message;
-	        header('location: /phpmotors/vehicles/');
+            header('location: /phpmotors/vehicles/');
             exit;
         }
+
+    case 'class':
+
+        $classificationName = filter_input(INPUT_GET, 'classificationName', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $vehicles = getVehiclesByClassification($classificationName);
+        if (!count($vehicles)) {
+            $message = "<p class='notice'>Sorry, no $classificationName could be found.</p>";
+        } else {
+            $vehicleDisplay = buildVehiclesDisplay($vehicles);
+        }
+
+        include '../view/classification.php';
+        break;
+
+    case 'viewVehicle':
+        $vehicleId = filter_input(INPUT_GET, 'vehicleId', FILTER_SANITIZE_NUMBER_INT);
+
+        $vehicleInfo = getInvItemInfo($vehicleId);
+        
+        $thumbnailsPath = getThumbnails($vehicleId);
+        $thumbnailsList = thumbnailHTML($thumbnailsPath);
+        
+        if (empty($vehicleInfo)){
+            $message = "<p class='notice'>There was an error in getting the vehicle's information</p>";
+        } else {
+            // If not, build the html for the vehicle information
+            $vehicleHTML = buildVehiclesHTML($vehicleInfo);
+        }
+        include '../view/vehicle-detail.php';
+        break;
 
     default:
         $classificationList = buildClassificationList($classifications);

@@ -3,7 +3,7 @@
         <h1>
             Welcome to PHP Motors!
         </h1>
-        <img src="./images/delorean.jpg" alt="Gray Delorean car from the movie Back to the Future">
+        <img src="/phpmotors/images/vehicles/delorean.jpg" alt="Gray Delorean car from the movie Back to the Future">
         <div id="info">
             <h2>
                 DMC Delorean

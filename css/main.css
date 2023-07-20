@@ -36,7 +36,7 @@ nav .flex {
   align-items: center;
   font-size: 1em;
 }
-@media only screen and (max-width: 740px) {
+@media only screen and (max-width: 790px) {
   nav .flex {
     flex-direction: column;
   }
@@ -74,6 +74,210 @@ nav li a:hover {
   color: black;
 }
 
+@media screen and (min-width: 780px) {
+  main.detail {
+    display: grid;
+    grid-template-areas: "title title title title" "thumb info info info" "1 message message 2" "3 review review 4" "reviews reviews form form";
+  }
+  main.detail h1 {
+    grid-area: title;
+  }
+  main.detail #custtitle {
+    grid-area: review;
+  }
+  main.detail #reviewForm {
+    grid-area: form;
+    align-items: start;
+    margin-left: 20px !important;
+  }
+  main.detail #reviewForm textarea {
+    padding: 10px !important;
+  }
+  main.detail #reviewForm input {
+    margin: 10px 0 !important;
+  }
+  main.detail p.message {
+    grid-area: message;
+  }
+  main.detail .reviews {
+    grid-area: reviews;
+    padding: 0;
+    text-align: right !important;
+    margin: 0 0 0 20px;
+    list-style-type: none;
+  }
+  main.detail .reviews .review > * {
+    margin: 0;
+  }
+  main.detail .reviews .review p {
+    margin-bottom: 10px;
+  }
+  main.detail .reviews .review h4 {
+    margin-top: 10px;
+  }
+}
+main #custtitle {
+  text-align: center;
+}
+main.detail .reviews {
+  padding: 0;
+  text-align: center;
+  margin: 0 0 20px 0;
+  list-style-type: none;
+}
+main.detail .reviews .review > * {
+  margin: 0;
+}
+main.detail .reviews .review p {
+  margin-bottom: 10px;
+}
+main.detail .reviews .review h4 {
+  margin-top: 10px;
+}
+main.detail #reviewForm {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+main.detail #reviewForm textarea {
+  margin: 0;
+  padding: 0;
+}
+main.detail #reviewForm input {
+  margin: 10px auto;
+}
+main #thumbnail-list {
+  display: flex;
+  flex-direction: column;
+  grid-area: thumb;
+  gap: 8px;
+  width: 100%;
+  margin: 0 auto;
+}
+@media screen and (min-width: 580px) {
+  main #thumbnail-list {
+    margin-left: 20px;
+  }
+  main #thumbnail-list img {
+    transition: transform 0.4s;
+  }
+  main #thumbnail-list img:hover {
+    transform: scale(1.5);
+    transition: transform 0.4s;
+  }
+}
+main .radio {
+  flex-direction: row;
+  gap: 15px;
+  margin: 20px 0;
+}
+@media screen and (max-width: 790px) {
+  main .radio {
+    display: grid;
+    grid-template-areas: "text text" "lbl1 btn1" "lbl2 btn2";
+  }
+  main .radio #radioLabel {
+    grid-area: text;
+  }
+  main .radio label.pImage {
+    text-align: center;
+  }
+  main .radio label.pImage:nth-child(2) {
+    grid-area: lbl1;
+  }
+  main .radio label.pImage:nth-child(3) {
+    grid-area: lbl2;
+  }
+}
+main .radio label,
+main .radio input {
+  margin: 0;
+}
+main .vehicle {
+  width: 100%;
+  text-align: left;
+  grid-area: info;
+}
+main .vehicle img {
+  width: 100%;
+}
+main .vehicle ul {
+  padding: 0;
+  margin-right: 20px;
+}
+@media screen and (max-width: 580px) {
+  main .vehicle ul {
+    margin: 0;
+  }
+}
+main .vehicle ul > * {
+  margin: 0;
+}
+@media screen and (max-width: 580px) {
+  main .vehicle {
+    text-align: center;
+    margin: 10px 0;
+  }
+}
+@media screen and (min-width: 790px) {
+  main .vehicle {
+    display: grid;
+    grid-template-areas: "img text1" "img info" "img text3";
+  }
+  main .vehicle img {
+    grid-area: img;
+    margin: auto;
+  }
+  main .vehicle ul {
+    grid-area: info;
+  }
+}
+main #inv-display {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main #inv-display li {
+  margin-bottom: 0.5em;
+  border: 1px #ccc solid;
+  list-style-type: none;
+  flex: 1 1 auto;
+  width: 100%;
+  text-align: center;
+  padding: 0 0 15px 0;
+}
+main #inv-display li h2 {
+  margin: 0 0 5px 0;
+}
+main #inv-display img {
+  max-width: 100%;
+}
+@media only screen and (min-width: 790px) {
+  main #inv-display {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  main #inv-display h2 {
+    font-size: 1rem;
+  }
+  main #inv-display li {
+    max-width: 200px;
+    flex: 1 0 auto;
+    text-align: center;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding-bottom: 20px;
+  }
+  main #inv-display div {
+    width: 100%;
+  }
+}
 main .message {
   text-align: center;
   margin-left: 20px;

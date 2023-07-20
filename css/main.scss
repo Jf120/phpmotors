@@ -2,7 +2,7 @@
 
 //Variables
 $breakpoint: 580px;
-$breakpoint-medium: 740px;
+$breakpoint-medium: 790px;
 $breakpoint-large: 930px;
 $heading-color: black;
 $accent-color: #4c96d7;
@@ -56,8 +56,8 @@ nav {
     }
 
     & > * {
-        margin: 0;
-      }
+      margin: 0;
+    }
 
     #account {
       margin-right: 1em;
@@ -94,6 +94,254 @@ nav {
 }
 
 main {
+  @media screen and (min-width: 780px) {
+    &.detail {
+      display: grid;
+      grid-template-areas:
+        "title title title title"
+        "thumb info info info"
+        "1 message message 2"
+        "3 review review 4"
+        "reviews reviews form form";
+
+      h1 {
+        grid-area: title;
+      }
+
+      #custtitle {
+        grid-area: review;
+      }
+
+      #reviewForm {
+        grid-area: form;
+        align-items: start;
+        margin-left: 20px !important;
+
+        textarea {
+          padding: 10px !important;
+        }
+
+        input {
+          margin: 10px 0 !important;
+        }
+      }
+
+      p.message {
+        grid-area: message;
+      }
+
+      .reviews {
+        grid-area: reviews;
+        padding: 0;
+        text-align: right !important;
+        margin: 0 0 0 20px;
+        list-style-type: none;
+
+        .review {
+          & > * {
+            margin: 0;
+          }
+
+          p {
+            margin-bottom: 10px;
+          }
+
+          h4 {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  #custtitle {
+    text-align: center;
+  }
+
+  &.detail {
+    .reviews {
+      padding: 0;
+      text-align: center;
+      margin: 0 0 20px 0;
+      list-style-type: none;
+
+      .review {
+        & > * {
+          margin: 0;
+        }
+
+        p {
+          margin-bottom: 10px;
+        }
+
+        h4 {
+          margin-top: 10px;
+        }
+      }
+    }
+
+    #reviewForm {
+      max-width: 100%;
+      padding: 0;
+      margin: 0;
+
+      textarea {
+        margin: 0;
+        padding: 0;
+      }
+
+      input {
+        margin: 10px auto;
+      }
+    }
+  }
+
+  #thumbnail-list {
+    display: flex;
+    flex-direction: column;
+    grid-area: thumb;
+    gap: 8px;
+    width: 100%;
+    margin: 0 auto;
+
+    @media screen and (min-width: $breakpoint) {
+      margin-left: 20px;
+      img {
+        transition: transform 0.4s;
+      }
+
+      img:hover {
+        transform: scale(1.5);
+        transition: transform 0.4s;
+      }
+    }
+  }
+
+  .radio {
+    flex-direction: row;
+    gap: 15px;
+    margin: 20px 0;
+
+    @media screen and (max-width: $breakpoint-medium) {
+      display: grid;
+      grid-template-areas:
+        "text text"
+        "lbl1 btn1"
+        "lbl2 btn2";
+
+      #radioLabel {
+        grid-area: text;
+      }
+
+      label.pImage {
+        text-align: center;
+      }
+
+      label.pImage:nth-child(2) {
+        grid-area: lbl1;
+      }
+
+      label.pImage:nth-child(3) {
+        grid-area: lbl2;
+      }
+    }
+
+    label,
+    input {
+      margin: 0;
+    }
+  }
+  .vehicle {
+    width: 100%;
+    text-align: left;
+    grid-area: info;
+    img {
+      width: 100%;
+    }
+    ul {
+      padding: 0;
+      margin-right: 20px;
+
+      @media screen and (max-width: $breakpoint) {
+        margin: 0;
+      }
+    
+      & > * {
+        margin: 0;
+      }
+    }
+    @media screen and (max-width: $breakpoint) {
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    @media screen and (min-width: $breakpoint-medium) {
+      display: grid;
+      grid-template-areas:
+        "img text1"
+        "img info"
+        "img text3";
+
+      img {
+        grid-area: img;
+        margin: auto;
+      }
+
+      ul {
+        grid-area: info;
+      }
+    }
+  }
+
+  #inv-display {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      margin-bottom: 0.5em;
+      border: 1px #ccc solid;
+      list-style-type: none;
+      flex: 1 1 auto;
+      width: 100%;
+      text-align: center;
+      padding: 0 0 15px 0;
+
+      h2 {
+        margin: 0 0 5px 0;
+      }
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    @media only screen and (min-width: $breakpoint-medium) {
+      flex-flow: row wrap;
+      justify-content: center;
+      h2 {
+        font-size: 1rem;
+      }
+      li {
+        max-width: 200px;
+        flex: 1 0 auto;
+        text-align: center;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+        padding-bottom: 20px;
+      }
+      div {
+        width: 100%;
+      }
+    }
+  }
+
   .message {
     text-align: center;
     margin-left: 20px;
@@ -111,7 +359,9 @@ main {
     margin: 20px auto;
     text-align: center;
 
-    tr:nth-child(even) {background-color: #f2f2f2;}
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
 
     a {
       color: blue;
